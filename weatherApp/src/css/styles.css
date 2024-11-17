@@ -2,6 +2,90 @@ body{
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/Users/elijahmoye/Desktop/Weather_App/weatherApp/src/images/backdrops/012dfeba-3d1d-4e03-ae8b-a1c53f8084e5.gif');
+    background-size: cover;
+    
+    
+
 }
+
+
+
+#search{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+
+#inner-info{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 85vw;
+    justify-content: space-between;
+    margin-top: 50px;
+    color: white;
+}
+
+#inner-info > div{
+
+    height: 200px;
+    width: 368px;
+    color: white;
+}
+
+#icon, #information, #more{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#icon {
+
+    font-size: large;
+    color: white;
+}
+
+#textSource{
+
+    height: 200px;
+    width: 200px;
+}
+
+#weekForecast{
+
+    width: 313px;
+    height: 355px;
+    border-radius: 10px;
+    width: 75vw;
+    
+}
+
+#futureTemp {
+
+    display: flex;
+    border: 1px solid;
+    height: 20px;
+    width: 20px;
+    flex-direction: row;
+    font-size: 20px;
+
+}
+
+
