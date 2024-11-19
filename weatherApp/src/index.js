@@ -1,22 +1,21 @@
 import '/Users/elijahmoye/Desktop/Weather_App/weatherApp/src/css/styles.css'
 import _ from 'lodash'
+import { displayIcon } from './java/myIcons'
 
-let here = document.getElementById('here')
+
+
 
 
 async function getWeather(searchKey) {
 
-    let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchKey}?key=F3SPHFPC6K3H3WATC6D4VDGV9`, {mode: 'cors'})
+    let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchKey}?unitGroup=metric&include=hours%2Cdays%2Ccurrent%2Cevents%2Calerts&key=F3SPHFPC6K3H3WATC6D4VDGV9&contentType=json&include=iconSet=icons1`, {mode: 'cors'})
 
     
     await response.json()
+
     .then((response) => {
 
 
-        console.log(response)
-        
-
-        console.log(response.currentConditions.icon)
 
         let weatherInfo = {
 
@@ -26,12 +25,22 @@ async function getWeather(searchKey) {
 
             feelsLike: response.currentConditions.feelslike,
 
-            conditions: response.currentConditions.conditions
+            conditions: response.currentConditions.icon,
+
+            sunrise: response.currentConditions.sunrise, 
+
+            sunset: response.currentConditions.sunset
+
 
         }
 
+        displayIcon(weatherInfo.conditions)
 
-        
+        let sunrise = document.getElementById('sunrise')
+        let sunset = document.getElementById('sunset')
+
+        sunrise.innerHTML = `Sunrise: ${weatherInfo.sunrise}`
+        sunset.innerHTML = `Sunset: ${weatherInfo.sunset}`
 
 
     })
@@ -42,7 +51,6 @@ async function getWeather(searchKey) {
 
         
 }
-
 
 function searchLocation(){
 
@@ -55,8 +63,6 @@ function searchLocation(){
 
         getWeather(inputs.value)
         
-
-
     })
 }
 searchLocation()
