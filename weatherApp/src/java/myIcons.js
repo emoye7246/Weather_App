@@ -36,10 +36,7 @@ export let icons = {
 export function displayIcon(conditions){
 
     textSource.src = icons[conditions]
-
-    
   
-    
 }
 
 // We need to rename the dash elements but

@@ -39,6 +39,8 @@ body{
     justify-content: space-between;
     margin-top: 50px;
     color: white;
+    position: relative;
+    left: 4vw;
 }
 
 #inner-info > div{
@@ -48,7 +50,7 @@ body{
     color: white;
 }
 
-#icon, #information, #more{
+#icon, #information, #myTime{
 
     display: flex;
     flex-direction: column;

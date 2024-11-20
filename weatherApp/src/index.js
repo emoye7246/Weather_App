@@ -1,11 +1,8 @@
 import '/Users/elijahmoye/Desktop/Weather_App/weatherApp/src/css/styles.css'
 import _ from 'lodash'
 import { displayIcon } from './java/myIcons'
-import { Info } from './java/halfSection'
-
-
-
-
+import { Info, weekForecast } from './java/halfSection'
+import { timeControl } from './java/halfSection'
 
 async function getWeather(searchKey) {
 
@@ -30,10 +27,20 @@ async function getWeather(searchKey) {
 
             sunset: response.currentConditions.sunset,
 
+            timezone: response.timezone
+
+
+
+
+
+
+
 
         }
 
-        console.log(response)
+        // console.log(response)
+
+        weekForecast(response)
 
         return weatherInfo
 
@@ -50,8 +57,7 @@ async function getWeather(searchKey) {
         sunset.innerHTML = `Sunset: ${weatherInfo.sunset}`
 
         Info(weatherInfo.location, weatherInfo.Tempature, weatherInfo.feelsLike)
-
-        
+        timeControl(weatherInfo.timezone)
     })
     .catch(() => {
 
@@ -60,6 +66,8 @@ async function getWeather(searchKey) {
 
         
 }
+
+getWeather('Cupertino')
 
 function searchLocation(){
 
