@@ -8,6 +8,10 @@ import partly_cloudy_night from '/Users/elijahmoye/Desktop/Weather_App/weatherAp
 import clear_day from '/Users/elijahmoye/Desktop/Weather_App/weatherApp/src/images/icons/clear-day.png'
 import clear_night from '/Users/elijahmoye/Desktop/Weather_App/weatherApp/src/images/icons/clear-night.png'
 
+
+
+
+
 let textSource = document.getElementById('textSource')
 
 export let icons = {
@@ -31,6 +35,7 @@ export let icons = {
     
     "clear-night": clear_night
 }
+
 
 
 export function displayIcon(conditions){

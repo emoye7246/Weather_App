@@ -42,7 +42,17 @@ export function weekForecast(obj){
        imagesIcon.style.height = '50px'
        imagesIcon.style.width = '50px'
 
-       element.append(imagesIcon)
+       let temp = document.createElement('div')
+       temp.innerHTML = `${obj.days[futureArray.indexOf(element)].temp}&#8457`
+
+       let dayOfWeek = document.createElement('div')
+       dayOfWeek.innerHTML = `${format(new Date(obj.days[futureArray.indexOf(element) + 2].datetime), 'E')}`
+
+
+
+       element.append(imagesIcon, temp, dayOfWeek)
 
     })
+
+
 }

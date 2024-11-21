@@ -3,6 +3,7 @@ import _ from 'lodash'
 import { displayIcon } from './java/myIcons'
 import { Info, weekForecast } from './java/halfSection'
 import { timeControl } from './java/halfSection'
+import { displayBackground } from './java/mygifs'
 
 async function getWeather(searchKey) {
 
@@ -28,17 +29,9 @@ async function getWeather(searchKey) {
             sunset: response.currentConditions.sunset,
 
             timezone: response.timezone
-
-
-
-
-
-
-
-
         }
 
-        // console.log(response)
+        console.log(response)
 
         weekForecast(response)
 
@@ -49,6 +42,8 @@ async function getWeather(searchKey) {
     .then((weatherInfo) => {
 
         displayIcon(weatherInfo.conditions)
+        displayBackground(weatherInfo.conditions)
+
 
         let sunrise = document.getElementById('sunrise')
         let sunset = document.getElementById('sunset')
